@@ -11,6 +11,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class AuthenticationService implements AuthService{
     private final UserRepository userRepository;
@@ -63,4 +65,7 @@ public class AuthenticationService implements AuthService{
         return userRepository.findByEmail(request.getUsername())
                 .orElseThrow();
     }
+
+
+
 }

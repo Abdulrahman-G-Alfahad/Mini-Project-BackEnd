@@ -1,13 +1,10 @@
 package CodedBTA.mini_project.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -17,7 +14,7 @@ public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private Long id;
+    private Long userId;
 
     @Column(nullable = false)
     private String userName;
@@ -34,6 +31,10 @@ public class UserEntity implements UserDetails {
     @Column(nullable = false)
     private String password;
 
+    @OneToOne
+    @JoinColumn(name = "account_id")
+    private AccountEntity accountEntity;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
@@ -41,6 +42,14 @@ public class UserEntity implements UserDetails {
 
     public String getPassword() {
         return password;
+    }
+
+    public AccountEntity getAccount() {
+        return accountEntity;
+    }
+
+    public void setAccount(AccountEntity accountEntity) {
+        this.accountEntity = accountEntity;
     }
 
     @Override
@@ -70,11 +79,11 @@ public class UserEntity implements UserDetails {
 
 
     public Long getId() {
-        return id;
+        return userId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public String getUserName() {

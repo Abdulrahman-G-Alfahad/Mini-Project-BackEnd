@@ -3,42 +3,50 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "accounts")
-public class Account {
+public class AccountEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long accountId;
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private Long userId;
+    private UserEntity user;
 
     @Column(nullable = false)
     private Double balance;
 
-    public Account(){
+    public AccountEntity(){
 
     }
 
-    public Account(Long userId,Double balance){
-        this.userId=userId;
+    public AccountEntity(UserEntity user, Double balance){
+        this.user=user;
         this.balance=balance;
 
     }
 
     public Long getId() {
-        return id;
+        return accountId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.accountId = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getAccountId() {
+        return accountId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
     public Double getBalance() {
