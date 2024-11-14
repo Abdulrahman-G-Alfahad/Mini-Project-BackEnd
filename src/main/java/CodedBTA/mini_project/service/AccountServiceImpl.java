@@ -1,4 +1,4 @@
-package CodedBTA.mini_project.service.auth;
+package CodedBTA.mini_project.service;
 
 import CodedBTA.mini_project.entity.AccountEntity;
 import CodedBTA.mini_project.entity.UserEntity;

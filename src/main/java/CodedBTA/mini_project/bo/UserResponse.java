@@ -1,4 +1,4 @@
-package CodedBTA.mini_project.bo.auth;
+package CodedBTA.mini_project.bo;
 
 public class UserResponse {
 
