@@ -5,6 +5,7 @@ import CodedBTA.mini_project.bo.auth.LoginUserRequest;
 import CodedBTA.mini_project.bo.auth.LogoutResponse;
 import CodedBTA.mini_project.bo.auth.RegisterUserRequest;
 import CodedBTA.mini_project.entity.UserEntity;
+import CodedBTA.mini_project.service.auth.AuthService;
 import CodedBTA.mini_project.service.auth.AuthenticationService;
 import CodedBTA.mini_project.service.auth.JwtService;
 import org.springframework.http.ResponseEntity;
@@ -49,4 +50,6 @@ public class AuthenticationController {
 
         return  ResponseEntity.ok(null);
     }
+
+
 }

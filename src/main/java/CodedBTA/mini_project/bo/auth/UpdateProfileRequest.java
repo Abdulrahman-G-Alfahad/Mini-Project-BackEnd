@@ -1,6 +1,6 @@
 package CodedBTA.mini_project.bo.auth;
 
-public class UserResponse {
+public class UpdateProfileRequest {
     private String userName;
     private String email;
     private String phoneNumber;
@@ -8,7 +8,7 @@ public class UserResponse {
     private String password;
 
 
-    public UserResponse(String userName, String email, String phoneNumber, String address, String password) {
+    public UpdateProfileRequest(String userName, String email, String phoneNumber, String address, String password) {
         this.userName = userName;
         this.email=email;
         this.phoneNumber=phoneNumber;
