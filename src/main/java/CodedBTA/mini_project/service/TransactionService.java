@@ -7,6 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 public interface TransactionService {
-    List<TransactionEntity> getAllTransactions(AccountEntity account);
-    List<TransactionEntity> getTransactionsByDate(Date date);
+//    List<TransactionEntity> getAllTransactions(AccountEntity account);
+//    List<TransactionEntity> getTransactionsByDate(Date date);
 }

@@ -61,7 +61,7 @@ public class userController {
         String token = authHeader.substring(7);
         String email = jwtService.extractUsername(token);
         UserEntity user = userService.getUserByEmail(email);
-        
+
         return accountService.updateBalance(user, newBalance);
     }
 }
