@@ -1,10 +1,9 @@
-package CodedBTA.mini_project.service.impl;
+package CodedBTA.mini_project.service;
 
-import CodedBTA.mini_project.bo.auth.UpdateProfileRequest;
+import CodedBTA.mini_project.bo.UpdateProfileRequest;
 import CodedBTA.mini_project.entity.UserEntity;
 import CodedBTA.mini_project.exception.BodyGuardException;
 import CodedBTA.mini_project.repository.UserRepository;
-import CodedBTA.mini_project.service.auth.UserSerivce;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

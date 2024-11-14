@@ -1,7 +1,6 @@
-package CodedBTA.mini_project.service.auth;
+package CodedBTA.mini_project.service;
 
-import CodedBTA.mini_project.bo.auth.LoginUserRequest;
-import CodedBTA.mini_project.bo.auth.UpdateProfileRequest;
+import CodedBTA.mini_project.bo.UpdateProfileRequest;
 import CodedBTA.mini_project.entity.UserEntity;
 
 public interface UserSerivce {

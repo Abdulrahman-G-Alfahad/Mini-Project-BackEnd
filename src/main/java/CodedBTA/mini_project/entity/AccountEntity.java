@@ -1,6 +1,8 @@
 package CodedBTA.mini_project.entity;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "accounts")
 public class AccountEntity {
@@ -14,6 +16,18 @@ public class AccountEntity {
 
     @Column(nullable = false)
     private Double balance;
+
+    @OneToMany
+    @JoinColumn(name = "transaction_id")
+    private List<TransactionEntity> transactions;
+
+    public List<TransactionEntity> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<TransactionEntity> transactions) {
+        this.transactions = transactions;
+    }
 
     public AccountEntity(){
 
