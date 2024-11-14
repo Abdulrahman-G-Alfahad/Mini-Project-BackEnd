@@ -5,11 +5,11 @@ import CodedBTA.mini_project.entity.UserEntity;
 import CodedBTA.mini_project.exception.UserNotFound;
 import CodedBTA.mini_project.service.AdminService;
 import CodedBTA.mini_project.service.AdminServiceImp;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequestMapping("/admin")
 @RestController
@@ -37,8 +37,14 @@ public class AdminController {
         }
     }
 
-    @DeleteMapping("/delet-user/{id}")
-    public deleteById(@PathVariable(name = "id") String id){
+    @DeleteMapping("/delete-user/{id}")
+    public ResponseEntity deleteUser(@PathVariable(name = "id") String id){
+        try {
+            adminService.deleteUser(Long.valueOf(id));
+            return ResponseEntity.status(HttpStatus.OK).body(null);
+        } catch (UserNotFound e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
 
     }
 }
