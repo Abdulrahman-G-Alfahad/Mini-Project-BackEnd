@@ -32,12 +32,16 @@ public class UserEntity implements UserDetails {
     private String password;
 
     @OneToOne
+    @JoinColumn(name = "role_id")
+    private RoleEntity role;
+
+    @OneToOne
     @JoinColumn(name = "account_id")
     private AccountEntity accountEntity;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return List.of(role);
     }
 
     public String getPassword() {
@@ -77,6 +81,14 @@ public class UserEntity implements UserDetails {
         return true;
     }
 
+
+    public RoleEntity getRole() {
+        return role;
+    }
+
+    public void setRole(RoleEntity role) {
+        this.role = role;
+    }
 
     public Long getId() {
         return userId;

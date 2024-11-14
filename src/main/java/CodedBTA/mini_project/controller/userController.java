@@ -42,15 +42,6 @@ public class userController {
         return userResponse;
     }
 
-    @PostMapping("/account/create")
-    public AccountEntity createAccount(HttpServletRequest request, @RequestBody Double initialBalance){
-        String authHeader = request.getHeader("Authorization");
-        String token = authHeader.substring(7);
-        String email = jwtService.extractUsername(token);
-        UserEntity user = userService.getUserByEmail(email);
-        return accountService.createAccount(user,initialBalance);
-    }
-
     @GetMapping("/account/getAccount")
     public AccountEntity getAccount(HttpServletRequest request){
         String authHeader = request.getHeader("Authorization");
